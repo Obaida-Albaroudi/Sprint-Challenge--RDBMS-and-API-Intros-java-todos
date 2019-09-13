@@ -1,13 +1,28 @@
 // provided by Vivek Vishwanath
+package com.lambdaschool.sprint;
+
+import com.lambdaschool.sprint.model.Todo;
+import com.lambdaschool.sprint.model.User;
+import com.lambdaschool.sprint.model.UserRoles;
+import com.lambdaschool.sprint.model.Role;
+import com.lambdaschool.sprint.repository.RoleRepository;
+import com.lambdaschool.sprint.repository.TodoRepository;
+import com.lambdaschool.sprint.repository.UserRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 @Transactional
 @Component
-public class SeedData implements CommandLineRunner {
+public class seeddata implements CommandLineRunner {
     RoleRepository rolerepos;
     UserRepository userrepos;
-    ToDoRepository todorepos;
+    TodoRepository todorepos;
 
-    public SeedData(RoleRepository rolerepos, UserRepository userrepos, ToDoRepository todorepos) {
+    public seeddata(RoleRepository rolerepos, UserRepository userrepos, TodoRepository todorepos) {
         this.rolerepos = rolerepos;
         this.userrepos = userrepos;
         this.todorepos = todorepos;
